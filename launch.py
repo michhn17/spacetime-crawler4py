@@ -5,6 +5,10 @@ from utils.server_registration import get_cache_server
 from utils.config import Config
 from crawler import Crawler
 
+# FIX for macOS multiprocessing issue
+import multiprocessing
+multiprocessing.set_start_method('fork', force=True)
+
 
 def main(config_file, restart):
     cparser = ConfigParser()
